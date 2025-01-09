@@ -97,6 +97,7 @@ const ListBundles = () => {
                   keyboardType="numeric"
                   value={recipientNumber}
                   onChangeText={setRecipientNumber}
+                  maxLength={10}
                 />
                 <View style={styles.editButtons}>
                   <TouchableOpacity style={styles.cancelButton} onPress={handleCancelEdit}>
@@ -168,6 +169,7 @@ const ListBundles = () => {
               keyboardType="numeric"
               value={recipientNumber}
               onChangeText={setRecipientNumber}
+              maxLength={10}
             />
             <View style={styles.modalButtons}>
               <TouchableOpacity style={styles.closeButton} onPress={() => setModalVisible(false)}>
@@ -323,6 +325,7 @@ const styles = StyleSheet.create({
     width: 120,
     height: 100,
     marginBottom: 20,
+    borderRadius: 10,
   },
   bundleDetails: {
     marginBottom: 20,

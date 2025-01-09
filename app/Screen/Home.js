@@ -49,11 +49,11 @@ const Home = ({ navigation }) => {
     {
       icon: 'call',
       title: 'MTN AFA BUNDLE',
-      description: 'Non-expiry call bundle',
+      description: 'Register for AFA bundle',
       onPress: () => navigation.navigate('Afa'),
     },
     {
-      icon: 'call-outline',
+      icon: 'headset',
       title: 'Contact Us',
       description: 'Contact us for assistance',
       onPress: () => setModalVisible(true),
@@ -69,12 +69,18 @@ const Home = ({ navigation }) => {
     Linking.openURL(`tel:${callNumber}`);
   };
 
+  const onNotificationPress = () => {
+    navigation.navigate('Notification');
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.greeting}>Hello, Bentil Fiifi</Text>
         <Text style={styles.subGreeting}>Enjoy data with a low price!</Text>
+        <TouchableOpacity onPress={onNotificationPress}>
         <Ionicons name="notifications-outline" size={24} color="#fff" style={styles.notificationIcon} />
+        </TouchableOpacity>
       </View>
 
       <FlatList
@@ -160,9 +166,10 @@ const styles = StyleSheet.create({
     marginTop: 5,
   },
   notificationIcon: {
-    position: 'absolute',
-    top: 70,
-    right: 20,
+    position: "absolute",
+    top: -40,
+    right: 0,
+    color: "white",
   },
   carouselContainer: {
     marginTop: 20,

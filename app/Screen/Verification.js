@@ -35,20 +35,20 @@ const PhoneNumberVerificationScreen = ({ route, navigation }) => {
   };
 
   const handleVerifyCode = () => {
-    setLoading(true);
+    setLoading(true); 
 
     const code = verificationCode.join('');
     console.warn('Verification code entered:', code);
 
     setTimeout(() => {
-      setLoading(false); 
-      navigation.navigate('Onbording');
-    }, 1000);
+      setLoading(false);  
+      navigation.navigate('Onbording');  
+    }, 1000); 
   };
 
   const handleResend = () => {
     console.warn('Resend verification code');
-    setTimer(60);
+    setTimer(60); 
   };
 
   const onEditPressed = () => {
@@ -83,19 +83,19 @@ const PhoneNumberVerificationScreen = ({ route, navigation }) => {
       </View>
 
       <View style={styles.footer}>
-            <Text style={styles.timer}>
-                {timer === 0 ? (
-                <TouchableOpacity onPress={handleResend}>
-                    <Text style={styles.resendText}>Resend</Text>
-                </TouchableOpacity>
-                ) : (
-                `Resend code in ${timer} seconds`
-                )}
-            </Text>
-
-            <TouchableOpacity style={styles.button} onPress={handleVerifyCode}>
-                <Text style={styles.buttonText}>CONTINUE</Text>
+        <Text style={styles.timer}>
+          {timer === 0 ? (
+            <TouchableOpacity onPress={handleResend}>
+              <Text style={styles.resendText}>Resend</Text>
             </TouchableOpacity>
+          ) : (
+            `Resend code in ${timer} seconds`
+          )}
+        </Text>
+
+        <TouchableOpacity style={styles.button} onPress={handleVerifyCode} disabled={loading}>
+          <Text style={styles.buttonText}>{loading ? "Processing..." : "Continue"}</Text>
+        </TouchableOpacity>
       </View>
     </KeyboardAvoidingView>
   );

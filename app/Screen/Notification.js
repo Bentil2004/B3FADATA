@@ -1,15 +1,15 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-const Afa = () => {
+const Notification = () => {
   return (
     <View style={styles.container}>
-      <Text>SOON...</Text>
+      <Text>Notification</Text>
     </View>
   )
 }
 
-export default Afa
+export default Notification
 
 const styles = StyleSheet.create({
   container: {
