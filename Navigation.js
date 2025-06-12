@@ -5,7 +5,11 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Splash from "./app/Screen/SplashScreen";
 import PhoneNumberVerificationScreen from "./app/Screen/Verification";
 import PhoneVerification from "./app/Screen/PhoneVerification";
-import Onbording from "./app/Screen/Onbording";
+import OnbordSignUp from "./app/Screen/OnbordSignUp";
+import SignUpScreen from "./app/Screen/Authentication/SignUp";
+import LogIn from "./app/Screen/Authentication/LogIn";
+import ForgotPasswordEmail from "./app/Screen/Authentication/ForgotPassword";
+// import Onbording from "./app/Screen/Authentication/Onbording";
 import BottomTabNavigator from "./BottomTabNavigator";
 import Home from "./app/Screen/Home";
 import History from "./app/Screen/History";
@@ -20,6 +24,7 @@ import Language from "./app/Screen/Language";
 import Notification from "./app/Screen/Notification";
 import Profile from "./app/Screen/Profile";
 
+
 const Stack = createNativeStackNavigator();
 
 const Navigation = () => {
@@ -32,11 +37,13 @@ const Navigation = () => {
           component={BottomTabNavigator}
         />
         <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="Verification"
-          component={PhoneNumberVerificationScreen}
-        />
+        <Stack.Screen name="Verification" component={PhoneNumberVerificationScreen}/> 
         <Stack.Screen name="PhoneVerification" component={PhoneVerification} />
-        <Stack.Screen name="Onbording" component={Onbording} />
+        <Stack.Screen name="OnbordSignUp" component={OnbordSignUp} />
+        <Stack.Screen name="SignUp" component={SignUpScreen} />
+        <Stack.Screen name="LogIn" component={LogIn} />
+        <Stack.Screen name="ForgotPasswordEmail" component={ForgotPasswordEmail} />
+        {/* <Stack.Screen name="Onbording" component={Onbording} /> */}
         <Stack.Screen name="History" component={History} />
         <Stack.Screen name="Settings" component={Settings} />
         <Stack.Screen name="InternetData" component={InternetData} />

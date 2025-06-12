@@ -5,7 +5,7 @@ const SplashScreen = ({ navigation }) => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      navigation.navigate('PhoneVerification'); 
+      navigation.navigate('SignUp'); 
     }, 3000); 
 
     return () => clearTimeout(timer);
@@ -14,7 +14,7 @@ const SplashScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Image
-        source={require('../assets/LOGOB3FA.png')}
+        source={require('../assets/Logo.png')}
         style={styles.logo}
         resizeMode="contain"
       />
@@ -30,8 +30,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
   },
   logo: {
-    width: '80%',
-    height: '30%',
+    width: '100%',
+    height: '100%',
   },
 });
 

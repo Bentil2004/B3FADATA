@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { StyleSheet, Text, View, FlatList, Image, Dimensions, TouchableOpacity, Modal, Button, Linking, Clipboard } from 'react-native';
+import { StyleSheet, Text, View, FlatList, Image, Dimensions, TouchableOpacity, Modal, Button, Linking } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const { width } = Dimensions.get('window');
@@ -15,7 +15,7 @@ const Home = ({ navigation }) => {
   const flatListRef = useRef(null);
   const [modalVisible, setModalVisible] = useState(false);
 
-  const whatsappNumber = "0576639304";
+  const whatsappNumber = "0244666344";
   const callNumber = '0596888116';
 
   useEffect(() => {
@@ -60,10 +60,38 @@ const Home = ({ navigation }) => {
     },
   ];
 
-  const copyToClipboard = () => {
-    Clipboard.setString(whatsappNumber);
-    alert('WhatsApp number copied to clipboard');
+  // const openWhatsApp = () => {
+  //   const message = "Hello! I need assistance."; 
+  //   const whatsappURL = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(message)}`;
+
+  //   Linking.canOpenURL(whatsappURL)
+  //     .then((supported) => {
+  //       if (supported) {
+  //         Linking.openURL(whatsappURL);
+  //       } else {
+  //         alert("WhatsApp is not installed on your device");
+  //       }
+  //     })
+  //     .catch((error) => console.error("Error opening WhatsApp:", error));
+  // };
+
+  const openWhatsApp = () => {
+    const countryCode = "+233"; // Replace with your country code
+    const fullPhoneNumber = `${countryCode}${whatsappNumber.substring(1)}`; // Remove leading 0 and add country code
+    const message = "Hello! I need assistance.";
+    const waMeURL = `https://wa.me/${fullPhoneNumber}?text=${encodeURIComponent(message)}`;
+  
+    Linking.canOpenURL(waMeURL)
+      .then((supported) => {
+        if (supported) {
+          Linking.openURL(waMeURL);
+        } else {
+          alert("Unable to open WhatsApp. Please ensure it's installed.");
+        }
+      })
+      .catch((error) => console.error("Error opening WhatsApp:", error));
   };
+  
 
   const callAdmin = () => {
     Linking.openURL(`tel:${callNumber}`);
@@ -76,10 +104,10 @@ const Home = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.greeting}>Hello, Bentil Fiifi</Text>
-        <Text style={styles.subGreeting}>Enjoy data with a low price!</Text>
+        <Text style={styles.greeting}>Hello, Welcome to B3FADATA</Text>
+        <Text style={styles.subGreeting}>Enjoy data at a low cost!</Text>
         <TouchableOpacity onPress={onNotificationPress}>
-        <Ionicons name="notifications-outline" size={24} color="#fff" style={styles.notificationIcon} />
+          <Ionicons name="notifications-outline" size={24} color="#fff" style={styles.notificationIcon} />
         </TouchableOpacity>
       </View>
 
@@ -128,8 +156,8 @@ const Home = ({ navigation }) => {
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
             <Text style={styles.modalTitle}>Contact Us</Text>
-            <TouchableOpacity style={styles.contactButton} onPress={copyToClipboard}>
-              <Text style={styles.contactText}>Copy WhatsApp Number</Text>
+            <TouchableOpacity style={styles.contactButton} onPress={openWhatsApp}>
+              <Text style={styles.contactText}>Chat on WhatsApp</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.contactButton} onPress={callAdmin}>
               <Text style={styles.contactText}>Call Admin</Text>
@@ -141,7 +169,6 @@ const Home = ({ navigation }) => {
     </View>
   );
 };
-
 
 const styles = StyleSheet.create({
   container: {

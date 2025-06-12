@@ -55,7 +55,7 @@ const ProfileDetails = ({ navigation }) => {
             </Text>
           </View>
           <Text style={styles.greeting}>
-            {userDetails.fname} {userDetails.lname}
+            {/* {userDetails.fname} {userDetails.lname} */} 
           </Text>
         </View>
       </LinearGradient>
@@ -73,6 +73,10 @@ const ProfileDetails = ({ navigation }) => {
           <Text style={styles.detailLabel}>Phone Number: +233 244666344 </Text>
           {userDetails.phonenumber}
         </Text>
+        {/* <Text style={styles.detailItem}>
+          <Text style={styles.detailLabel}>Email: fiifiampoma@gmail.com </Text>
+          {userDetails.phonenumber}
+        </Text> */}
       </View>
     </View>
   );
